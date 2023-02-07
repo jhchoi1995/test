@@ -1,0 +1,187 @@
+1. Anaconda Env
+source Setting/conda.init.sh 
+conda activate hrnet
+
+
+2. Terminal Directory
+cd AVG-NIA/HRNet/
+tree /home/avg/AVG-NIA/HRNet/ -L 1
+/home/avg/AVG-NIA/HRNet/
+├── code
+├── file
+├── hrnet-command
+├── lib
+├── log
+├── output
+└── pretrainedModel
+
+/home/avg/AVG-NIA/HRNet/
+├── code
+│   ├── _init_paths.py
+│   ├── __pycache__
+│   ├── test.py
+│   └── train.py
+├── file
+│   ├── best.pth
+│   └── NIA.yaml
+├── hrnet-command
+├── lib
+│   ├── config
+│   ├── core
+│   ├── datasets
+│   ├── models
+│   └── utils
+├── log
+│   ├── cityscapes
+│   ├── test
+│   ├── train
+│   └── validation
+├── output
+│   └── cityscapes
+└── pretrainedModel
+    ├── hrnetv2_w48_imagenet_pretrained.pth
+    └── Model_
+
+
+3. NIA Dataset Directory, Folder Architecture
+root : /home/avg/ExternalSSD/final_nia_dataset
+3-1) final_nia_dataset
+tree /home/avg/ExternalSSD/final_nia_dataset/ -L 1
+/home/avg/ExternalSSD/final_nia_dataset/
+├── 8_1_1_split_criteria
+├── annotations
+├── class_names.txt
+├── EJ
+├── gt
+├── images
+├── images_png
+└── nia.txt
+
+3-2) gt Folder Architecture
+tree /home/avg/ExternalSSD/final_nia_dataset/gt/ -L 1
+/home/avg/ExternalSSD/final_nia_dataset/gt/
+├── test
+├── train
+└── validation
+
+
+3-3) images_png Folder Architecture
+tree /home/avg/ExternalSSD/final_nia_dataset/images_png/ -L 1
+/home/avg/ExternalSSD/final_nia_dataset/images_png/
+├── test
+├── train
+└── validation
+
+
+/home/avg/ExternalSSD/final_nia_dataset/
+├── 8_1_1_split_criteria
+├── annotations
+│   ├── test
+│   ├── train
+│   └── validation
+├── class_names.txt
+├── EJ
+│   ├── -
+│   ├── 8_1_1_split_criteria
+│   ├── class_names.txt
+│   ├── confusion_matrix
+│   ├── dataset info
+│   ├── file_error
+│   ├── list
+│   ├── Nia Data.zip
+│   ├── NIA_Trained_Weight
+│   └── vis
+├── gt
+│   ├── test
+│   ├── train
+│   └── validation
+├── images
+│   ├── test
+│   ├── train
+│   └── validation
+├── images_png
+│   ├── test
+│   ├── train
+│   └── validation
+└── nia.txt
+
+
+
+avg@avg-System-Product-Name:~$ tree /home/avg/ExternalSSD/final_nia_dataset/ -L 2
+/home/avg/ExternalSSD/final_nia_dataset/
+├── class_names.txt
+├── gt
+│   ├── test
+│   ├── train
+│   └── validation
+├── images_png
+│   ├── test
+│   ├── train
+│   └── validation
+└── list
+    ├── inferenceList
+    ├── te-stList
+    ├── trainList
+    └── validationList
+
+13 directories, 1 file
+avg@avg-System-Product-Name:~$ tree /home/avg/AVG-NIA/HRNet -L 1
+/home/avg/AVG-NIA/HRNet
+├── code
+├── file
+├── hrnet-command
+├── lib
+├── log
+├── output
+└── pretrainedModel
+
+6 directories, 1 file
+
+
+
+4. Command
+
+4-1) Train (64382 Images)
+python -m torch.distributed.launch --nproc_per_node=4 code/train.py --cfg file/NIA.yaml
+ --nproc_per_node       : GPU Num
+ code/train.py          : Execute train.py File
+ --cfg data/EJ/NIA.yaml : Configuration File Directory
+
+
+## AVG-Trained-Model Directory : /home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth
+## New-Trained-Model Directory : /home/avg/AVG-NIA/HRNet/output/cityscapes/NIA/best.pth
+
+4-2) Validation (8049 Images)
+python code/test.py --cfg file/NIA.yaml \
+                    DATASET.TEST_SET list/validationList/val.lst \
+                    TEST.MODEL_FILE /home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth
+
+ --cfg            : Configuration File Directory
+ DATASET.TEST_SET : Validation List File Directory
+ TEST.MODEL_FILE  : Trained Model Weight File Directory
+
+4-3) Test (8049 Images)
+python code/test.py --cfg file/NIA.yaml \
+                    DATASET.TEST_SET list/te-stList/val.lst \
+                    TEST.MODEL_FILE /home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth
+
+ --cfg            : Configuration File Directory
+ DATASET.TEST_SET : testList List File Directory
+ TEST.MODEL_FILE  : Trained Model Weight File Directory
+
+4-4) Inference (Testset)
+python code/test.py --cfg file/NIA.yaml \
+                     DATASET.TEST_SET list/inferenceList/test.lst \
+                     TEST.MODEL_FILE /home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth
+
+ --cfg            : Configuration File Directory
+ DATASET.TEST_SET : testList List File Directory
+ TEST.MODEL_FILE  : Trained Model Weight File Directory
+
+
+
+
+
+
+
+

@@ -1,0 +1,2210 @@
+2023-02-06 15:40:41,387 Namespace(cfg='file/NIA.yaml', opts=['DATASET.TEST_SET', 'list/validationList/val.lst', 'TEST.MODEL_FILE', '/home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth'])
+2023-02-06 15:40:41,388 {'AUTO_RESUME': False,
+ 'CUDNN': CfgNode({'BENCHMARK': True, 'DETERMINISTIC': False, 'ENABLED': True}),
+ 'DATASET': {'DATASET': 'cityscapes',
+             'EXTRA_TRAIN_SET': '',
+             'NUM_CLASSES': 32,
+             'ROOT': '/home/avg/ExternalSSD/final_nia_dataset/',
+             'TEST_SET': 'list/validationList/val.lst',
+             'TRAIN_SET': 'list/trainList/train.lst'},
+ 'DEBUG': {'DEBUG': False,
+           'SAVE_BATCH_IMAGES_GT': False,
+           'SAVE_BATCH_IMAGES_PRED': False,
+           'SAVE_HEATMAPS_GT': False,
+           'SAVE_HEATMAPS_PRED': False},
+ 'GPUS': (0, 1, 2, 3),
+ 'LOG_DIR': 'log',
+ 'LOSS': {'BALANCE_WEIGHTS': [0.4, 1],
+          'CLASS_BALANCE': False,
+          'OHEMKEEP': 131072,
+          'OHEMTHRES': 0.9,
+          'USE_OHEM': False},
+ 'MODEL': {'ALIGN_CORNERS': True,
+           'EXTRA': {'FINAL_CONV_KERNEL': 1,
+                     'STAGE1': {'BLOCK': 'BOTTLENECK',
+                                'FUSE_METHOD': 'SUM',
+                                'NUM_BLOCKS': [4],
+                                'NUM_CHANNELS': [64],
+                                'NUM_MODULES': 1,
+                                'NUM_RANCHES': 1},
+                     'STAGE2': {'BLOCK': 'BASIC',
+                                'FUSE_METHOD': 'SUM',
+                                'NUM_BLOCKS': [4, 4],
+                                'NUM_BRANCHES': 2,
+                                'NUM_CHANNELS': [48, 96],
+                                'NUM_MODULES': 1},
+                     'STAGE3': {'BLOCK': 'BASIC',
+                                'FUSE_METHOD': 'SUM',
+                                'NUM_BLOCKS': [4, 4, 4],
+                                'NUM_BRANCHES': 3,
+                                'NUM_CHANNELS': [48, 96, 192],
+                                'NUM_MODULES': 4},
+                     'STAGE4': {'BLOCK': 'BASIC',
+                                'FUSE_METHOD': 'SUM',
+                                'NUM_BLOCKS': [4, 4, 4, 4],
+                                'NUM_BRANCHES': 4,
+                                'NUM_CHANNELS': [48, 96, 192, 384],
+                                'NUM_MODULES': 3}},
+           'NAME': 'seg_hrnet_ocr',
+           'NUM_OUTPUTS': 2,
+           'OCR': {'DROPOUT': 0.05,
+                   'KEY_CHANNELS': 256,
+                   'MID_CHANNELS': 512,
+                   'SCALE': 1},
+           'PRETRAINED': 'pretrainedModel/hrnetv2_w48_imagenet_pretrained.pth'},
+ 'OUTPUT_DIR': 'output',
+ 'PIN_MEMORY': True,
+ 'PRINT_FREQ': 10,
+ 'RANK': 0,
+ 'TEST': {'BASE_SIZE': 512,
+          'BATCH_SIZE_PER_GPU': 1,
+          'FLIP_TEST': False,
+          'IMAGE_SIZE': [1920, 1080],
+          'MODEL_FILE': '/home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth',
+          'MULTI_SCALE': False,
+          'NUM_SAMPLES': 0,
+          'OUTPUT_INDEX': -1,
+          'SCALE_LIST': [1]},
+ 'TRAIN': {'BASE_SIZE': 1024,
+           'BATCH_SIZE_PER_GPU': 1,
+           'BEGIN_EPOCH': 0,
+           'DOWNSAMPLERATE': 1,
+           'END_EPOCH': 480,
+           'EXTRA_EPOCH': 0,
+           'EXTRA_LR': 0.001,
+           'FLIP': True,
+           'FREEZE_EPOCHS': -1,
+           'FREEZE_LAYERS': '',
+           'IGNORE_LABEL': 255,
+           'IMAGE_SIZE': [1920, 1080],
+           'LR': 0.001,
+           'LR_FACTOR': 0.1,
+           'LR_STEP': [90, 110],
+           'MOMENTUM': 0.9,
+           'MULTI_SCALE': True,
+           'NESTEROV': False,
+           'NONBACKBONE_KEYWORDS': [],
+           'NONBACKBONE_MULT': 10,
+           'NUM_SAMPLES': 0,
+           'OPTIMIZER': 'adam',
+           'RANDOM_BRIGHTNESS': False,
+           'RANDOM_BRIGHTNESS_SHIFT_VALUE': 10,
+           'RESUME': True,
+           'SCALE_FACTOR': 16,
+           'SHUFFLE': True,
+           'WD': 0.0005},
+ 'WORKERS': 4}
+2023-02-06 15:40:46,973 
+Total Parameters: 70,388,720
+----------------------------------------------------------------------------------------------------------------------------------
+Total Multiply Adds (For Convolution and Linear Layers only): 1,196.439437866211 GFLOPs
+----------------------------------------------------------------------------------------------------------------------------------
+Number of Layers
+Conv2d : 316 layers   BatchNorm2d : 314 layers   ReLU : 277 layers   Bottleneck : 4 layers   BasicBlock : 104 layers   HighResolutionModule : 8 layers   SpatialGather_Module : 1 layers   ObjectAttentionBlock2D : 1 layers   Dropout2d : 1 layers   SpatialOCR_Module : 1 layers   
+2023-02-06 15:40:46,974 => loading model from /home/avg/AVG-NIA/HRNet/file/AVG-NIA.pth
+2023-02-06 15:40:47,341 => loading conv1.weight from pretrained model
+2023-02-06 15:40:47,341 => loading bn1.weight from pretrained model
+2023-02-06 15:40:47,341 => loading bn1.bias from pretrained model
+2023-02-06 15:40:47,341 => loading bn1.running_mean from pretrained model
+2023-02-06 15:40:47,341 => loading bn1.running_var from pretrained model
+2023-02-06 15:40:47,341 => loading bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,341 => loading conv2.weight from pretrained model
+2023-02-06 15:40:47,341 => loading bn2.weight from pretrained model
+2023-02-06 15:40:47,341 => loading bn2.bias from pretrained model
+2023-02-06 15:40:47,341 => loading bn2.running_mean from pretrained model
+2023-02-06 15:40:47,341 => loading bn2.running_var from pretrained model
+2023-02-06 15:40:47,341 => loading bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,341 => loading layer1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,341 => loading layer1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.conv3.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn3.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn3.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn3.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn3.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.bn3.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.0.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.1.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.1.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.1.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.0.downsample.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.conv3.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn3.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn3.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn3.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn3.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.1.bn3.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,342 => loading layer1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.conv3.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn3.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn3.bias from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn3.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn3.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.2.bn3.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.conv3.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn3.weight from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn3.bias from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn3.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn3.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading layer1.3.bn3.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.0.weight from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.1.bias from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading transition1.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,343 => loading stage2.0.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,344 => loading stage2.0.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,345 => loading stage2.0.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,345 => loading transition2.2.0.0.weight from pretrained model
+2023-02-06 15:40:47,345 => loading transition2.2.0.1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading transition2.2.0.1.bias from pretrained model
+2023-02-06 15:40:47,346 => loading transition2.2.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading transition2.2.0.1.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading transition2.2.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,346 => loading stage3.0.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,347 => loading stage3.0.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,348 => loading stage3.0.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.0.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,349 => loading stage3.1.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,350 => loading stage3.1.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,351 => loading stage3.1.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,352 => loading stage3.1.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.1.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,353 => loading stage3.2.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,354 => loading stage3.2.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,355 => loading stage3.2.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,356 => loading stage3.2.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,357 => loading stage3.2.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,360 => loading stage3.3.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,361 => loading stage3.3.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,362 => loading stage3.3.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,363 => loading stage3.3.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,364 => loading stage3.3.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,365 => loading stage3.3.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,366 => loading stage3.3.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,367 => loading stage3.3.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,368 => loading stage3.3.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,369 => loading stage3.3.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,370 => loading stage3.3.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,370 => loading stage3.3.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.0.weight from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.1.weight from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.1.bias from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.1.running_var from pretrained model
+2023-02-06 15:40:47,370 => loading transition3.3.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,370 => loading stage4.0.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,371 => loading stage4.0.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,372 => loading stage4.0.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,373 => loading stage4.0.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,374 => loading stage4.0.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,375 => loading stage4.0.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,376 => loading stage4.0.branches.3.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,377 => loading stage4.0.branches.3.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.branches.3.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.3.0.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.3.1.weight from pretrained model
+2023-02-06 15:40:47,378 => loading stage4.0.fuse_layers.0.3.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.0.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.0.3.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.0.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.0.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.1.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.1.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,379 => loading stage4.0.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.2.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,380 => loading stage4.0.fuse_layers.3.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.0.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.1.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.1.running_var from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.1.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.0.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.1.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.1.running_var from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.0.fuse_layers.3.2.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,381 => loading stage4.1.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,382 => loading stage4.1.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,383 => loading stage4.1.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,384 => loading stage4.1.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,385 => loading stage4.1.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,386 => loading stage4.1.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,387 => loading stage4.1.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.3.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.3.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,388 => loading stage4.1.branches.3.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,389 => loading stage4.1.branches.3.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,390 => loading stage4.1.branches.3.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,391 => loading stage4.1.branches.3.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.branches.3.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.3.0.weight from pretrained model
+2023-02-06 15:40:47,392 => loading stage4.1.fuse_layers.0.3.1.weight from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.0.3.1.bias from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.0.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.0.3.1.running_var from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.0.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,393 => loading stage4.1.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.0.weight from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.1.weight from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.1.bias from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.1.running_var from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.1.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,394 => loading stage4.1.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.3.0.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.3.1.weight from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.3.1.bias from pretrained model
+2023-02-06 15:40:47,395 => loading stage4.1.fuse_layers.2.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.2.3.1.running_var from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.2.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,396 => loading stage4.1.fuse_layers.3.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.1.0.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.1.1.weight from pretrained model
+2023-02-06 15:40:47,397 => loading stage4.1.fuse_layers.3.1.1.1.bias from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.1.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.1.1.1.running_var from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.1.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.0.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.1.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.1.bias from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.1.running_var from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.1.fuse_layers.3.2.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,398 => loading stage4.2.branches.0.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,399 => loading stage4.2.branches.0.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.0.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,400 => loading stage4.2.branches.1.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,401 => loading stage4.2.branches.1.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.1.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,402 => loading stage4.2.branches.2.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,403 => loading stage4.2.branches.2.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.2.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.conv1.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.bn1.weight from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.bn1.bias from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.bn1.running_var from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,404 => loading stage4.2.branches.3.0.conv2.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.0.bn2.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.0.bn2.bias from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.0.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.0.bn2.running_var from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.0.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.conv1.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn1.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn1.bias from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn1.running_var from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.conv2.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn2.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn2.bias from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn2.running_var from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.1.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.conv1.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.bn1.weight from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.bn1.bias from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.bn1.running_var from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,405 => loading stage4.2.branches.3.2.conv2.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.2.bn2.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.2.bn2.bias from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.2.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.2.bn2.running_var from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.2.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.conv1.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn1.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn1.bias from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn1.running_mean from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn1.running_var from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.conv2.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn2.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn2.bias from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn2.running_mean from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn2.running_var from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.branches.3.3.bn2.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,406 => loading stage4.2.fuse_layers.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.0.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.1.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.1.bias from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.1.running_var from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.0.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.2.0.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.2.1.weight from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.2.1.bias from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,407 => loading stage4.2.fuse_layers.1.2.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.1.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.1.bias from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.1.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.1.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.1.bias from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.1.running_mean from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.1.running_var from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.2.3.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.3.0.0.0.weight from pretrained model
+2023-02-06 15:40:47,408 => loading stage4.2.fuse_layers.3.0.0.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.0.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.0.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.0.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.0.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.0.2.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.0.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.0.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.1.1.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.0.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.1.weight from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.1.bias from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.1.running_mean from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.1.running_var from pretrained model
+2023-02-06 15:40:47,409 => loading stage4.2.fuse_layers.3.2.0.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,409 => loading conv3x3_ocr.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.1.weight from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.1.bias from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.1.running_mean from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.1.running_var from pretrained model
+2023-02-06 15:40:47,410 => loading conv3x3_ocr.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.1.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.1.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.1.0.running_mean from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.1.0.running_var from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.1.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.2.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.3.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.3.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.3.0.running_mean from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.3.0.running_var from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_pixel.3.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.1.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.1.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.1.0.running_mean from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.1.0.running_var from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.1.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.2.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.3.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.3.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.3.0.running_mean from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.3.0.running_var from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_object.3.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_down.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_down.1.0.weight from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_down.1.0.bias from pretrained model
+2023-02-06 15:40:47,410 => loading ocr_distri_head.object_context_block.f_down.1.0.running_mean from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_down.1.0.running_var from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_down.1.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.0.weight from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.1.0.weight from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.1.0.bias from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.1.0.running_mean from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.1.0.running_var from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.object_context_block.f_up.1.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.0.weight from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.1.0.weight from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.1.0.bias from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.1.0.running_mean from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.1.0.running_var from pretrained model
+2023-02-06 15:40:47,411 => loading ocr_distri_head.conv_bn_dropout.1.0.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,411 => loading cls_head.weight from pretrained model
+2023-02-06 15:40:47,411 => loading cls_head.bias from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.0.weight from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.0.bias from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.1.weight from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.1.bias from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.1.running_mean from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.1.running_var from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.1.num_batches_tracked from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.3.weight from pretrained model
+2023-02-06 15:40:47,411 => loading aux_head.3.bias from pretrained model
+2023-02-06 15:40:47,635 ####### START VALIDATION #######
+2023-02-06 15:40:56,238 processing: 0 images
+2023-02-06 15:40:56,238 mIoU: 0.2083
+2023-02-06 15:41:43,776 processing: 100 images
+2023-02-06 15:41:43,777 mIoU: 0.4269
+2023-02-06 15:42:31,867 processing: 200 images
+2023-02-06 15:42:31,868 mIoU: 0.4612
+2023-02-06 15:43:19,283 processing: 300 images
+2023-02-06 15:43:19,283 mIoU: 0.4828
+2023-02-06 15:44:06,479 processing: 400 images
+2023-02-06 15:44:06,479 mIoU: 0.4839
+2023-02-06 15:44:54,327 processing: 500 images
+2023-02-06 15:44:54,327 mIoU: 0.5011
+2023-02-06 15:45:40,929 processing: 600 images
+2023-02-06 15:45:40,930 mIoU: 0.4993
+2023-02-06 15:46:28,112 processing: 700 images
+2023-02-06 15:46:28,112 mIoU: 0.4996
+2023-02-06 15:47:14,797 processing: 800 images
+2023-02-06 15:47:14,797 mIoU: 0.5020
+2023-02-06 15:48:01,512 processing: 900 images
+2023-02-06 15:48:01,512 mIoU: 0.5043
+2023-02-06 15:48:48,232 processing: 1000 images
+2023-02-06 15:48:48,232 mIoU: 0.4993
+2023-02-06 15:49:34,950 processing: 1100 images
+2023-02-06 15:49:34,950 mIoU: 0.5018
+2023-02-06 15:50:21,708 processing: 1200 images
+2023-02-06 15:50:21,709 mIoU: 0.5023
+2023-02-06 15:51:08,371 processing: 1300 images
+2023-02-06 15:51:08,371 mIoU: 0.5015
+2023-02-06 15:51:54,821 processing: 1400 images
+2023-02-06 15:51:54,821 mIoU: 0.5011
+2023-02-06 15:52:41,376 processing: 1500 images
+2023-02-06 15:52:41,377 mIoU: 0.5053
+2023-02-06 15:53:27,964 processing: 1600 images
+2023-02-06 15:53:27,964 mIoU: 0.5046
+2023-02-06 15:54:15,144 processing: 1700 images
+2023-02-06 15:54:15,144 mIoU: 0.5040
+2023-02-06 15:55:02,092 processing: 1800 images
+2023-02-06 15:55:02,092 mIoU: 0.5040
+2023-02-06 15:55:48,512 processing: 1900 images
+2023-02-06 15:55:48,513 mIoU: 0.5016
+2023-02-06 15:56:35,630 processing: 2000 images
+2023-02-06 15:56:35,630 mIoU: 0.5028
+2023-02-06 15:57:22,201 processing: 2100 images
+2023-02-06 15:57:22,201 mIoU: 0.5031
+2023-02-06 15:58:08,795 processing: 2200 images
+2023-02-06 15:58:08,795 mIoU: 0.5035
+2023-02-06 15:58:55,615 processing: 2300 images
+2023-02-06 15:58:55,615 mIoU: 0.5037
+2023-02-06 15:59:41,924 processing: 2400 images
+2023-02-06 15:59:41,925 mIoU: 0.5018
+2023-02-06 16:00:27,965 processing: 2500 images
+2023-02-06 16:00:27,965 mIoU: 0.5008
+2023-02-06 16:01:14,932 processing: 2600 images
+2023-02-06 16:01:14,932 mIoU: 0.4995
+2023-02-06 16:02:02,772 processing: 2700 images
+2023-02-06 16:02:02,773 mIoU: 0.4999
+2023-02-06 16:02:51,340 processing: 2800 images
+2023-02-06 16:02:51,341 mIoU: 0.5002
+2023-02-06 16:03:40,092 processing: 2900 images
+2023-02-06 16:03:40,092 mIoU: 0.4998
+2023-02-06 16:04:27,860 processing: 3000 images
+2023-02-06 16:04:27,861 mIoU: 0.4996
+2023-02-06 16:05:16,305 processing: 3100 images
+2023-02-06 16:05:16,305 mIoU: 0.5011
+2023-02-06 16:06:05,473 processing: 3200 images
+2023-02-06 16:06:05,474 mIoU: 0.5029
+2023-02-06 16:06:54,686 processing: 3300 images
+2023-02-06 16:06:54,686 mIoU: 0.5028
+2023-02-06 16:07:43,584 processing: 3400 images
+2023-02-06 16:07:43,584 mIoU: 0.5032
+2023-02-06 16:08:31,669 processing: 3500 images
+2023-02-06 16:08:31,669 mIoU: 0.5039
+2023-02-06 16:09:19,513 processing: 3600 images
+2023-02-06 16:09:19,513 mIoU: 0.5038
+2023-02-06 16:10:07,494 processing: 3700 images
+2023-02-06 16:10:07,494 mIoU: 0.5032
+2023-02-06 16:10:56,374 processing: 3800 images
+2023-02-06 16:10:56,375 mIoU: 0.5053
+2023-02-06 16:11:44,496 processing: 3900 images
+2023-02-06 16:11:44,497 mIoU: 0.5049
+2023-02-06 16:12:33,532 processing: 4000 images
+2023-02-06 16:12:33,532 mIoU: 0.5040
+2023-02-06 16:13:21,688 processing: 4100 images
+2023-02-06 16:13:21,689 mIoU: 0.5026
+2023-02-06 16:14:09,050 processing: 4200 images
+2023-02-06 16:14:09,051 mIoU: 0.5027
+2023-02-06 16:14:56,821 processing: 4300 images
+2023-02-06 16:14:56,821 mIoU: 0.5029
+2023-02-06 16:15:45,349 processing: 4400 images
+2023-02-06 16:15:45,349 mIoU: 0.5035
+2023-02-06 16:16:33,477 processing: 4500 images
+2023-02-06 16:16:33,477 mIoU: 0.5031
+2023-02-06 16:17:20,883 processing: 4600 images
+2023-02-06 16:17:20,883 mIoU: 0.5025
+2023-02-06 16:18:08,804 processing: 4700 images
+2023-02-06 16:18:08,805 mIoU: 0.5026
+2023-02-06 16:18:56,819 processing: 4800 images
+2023-02-06 16:18:56,820 mIoU: 0.5024
+2023-02-06 16:19:44,660 processing: 4900 images
+2023-02-06 16:19:44,661 mIoU: 0.5020
+2023-02-06 16:20:32,322 processing: 5000 images
+2023-02-06 16:20:32,322 mIoU: 0.5016
+2023-02-06 16:21:20,341 processing: 5100 images
+2023-02-06 16:21:20,341 mIoU: 0.5011
+2023-02-06 16:22:08,751 processing: 5200 images
+2023-02-06 16:22:08,752 mIoU: 0.5010
+2023-02-06 16:22:57,828 processing: 5300 images
+2023-02-06 16:22:57,828 mIoU: 0.5006
+2023-02-06 16:23:47,094 processing: 5400 images
+2023-02-06 16:23:47,094 mIoU: 0.5004
+2023-02-06 16:24:35,799 processing: 5500 images
+2023-02-06 16:24:35,799 mIoU: 0.5003
+2023-02-06 16:25:24,157 processing: 5600 images
+2023-02-06 16:25:24,158 mIoU: 0.5000
+2023-02-06 16:26:12,776 processing: 5700 images
+2023-02-06 16:26:12,776 mIoU: 0.4995
+2023-02-06 16:27:01,495 processing: 5800 images
+2023-02-06 16:27:01,496 mIoU: 0.4990
+2023-02-06 16:27:49,690 processing: 5900 images
+2023-02-06 16:27:49,691 mIoU: 0.4990
+2023-02-06 16:28:37,841 processing: 6000 images
+2023-02-06 16:28:37,842 mIoU: 0.4988
+2023-02-06 16:29:26,122 processing: 6100 images
+2023-02-06 16:29:26,122 mIoU: 0.4992
+2023-02-06 16:30:13,996 processing: 6200 images
+2023-02-06 16:30:13,997 mIoU: 0.4995
+2023-02-06 16:31:01,881 processing: 6300 images
+2023-02-06 16:31:01,881 mIoU: 0.4995
+2023-02-06 16:31:49,566 processing: 6400 images
+2023-02-06 16:31:49,566 mIoU: 0.5002
+2023-02-06 16:32:37,574 processing: 6500 images
+2023-02-06 16:32:37,574 mIoU: 0.5000
+2023-02-06 16:33:25,593 processing: 6600 images
+2023-02-06 16:33:25,593 mIoU: 0.5020
+2023-02-06 16:34:14,090 processing: 6700 images
+2023-02-06 16:34:14,090 mIoU: 0.5015
+2023-02-06 16:35:02,775 processing: 6800 images
+2023-02-06 16:35:02,775 mIoU: 0.5011
+2023-02-06 16:35:51,488 processing: 6900 images
+2023-02-06 16:35:51,488 mIoU: 0.5006
+2023-02-06 16:36:40,221 processing: 7000 images
+2023-02-06 16:36:40,222 mIoU: 0.5008
+2023-02-06 16:37:28,610 processing: 7100 images
+2023-02-06 16:37:28,611 mIoU: 0.5010
+2023-02-06 16:38:17,061 processing: 7200 images
+2023-02-06 16:38:17,061 mIoU: 0.5015
+2023-02-06 16:39:05,624 processing: 7300 images
+2023-02-06 16:39:05,624 mIoU: 0.5018
+2023-02-06 16:39:53,420 processing: 7400 images
+2023-02-06 16:39:53,420 mIoU: 0.5022
+2023-02-06 16:40:41,384 processing: 7500 images
+2023-02-06 16:40:41,385 mIoU: 0.5019
+2023-02-06 16:41:29,330 processing: 7600 images
+2023-02-06 16:41:29,330 mIoU: 0.5023
+2023-02-06 16:42:17,754 processing: 7700 images
+2023-02-06 16:42:17,754 mIoU: 0.5022
+2023-02-06 16:43:06,210 processing: 7800 images
+2023-02-06 16:43:06,210 mIoU: 0.5022
+2023-02-06 16:43:55,153 processing: 7900 images
+2023-02-06 16:43:55,153 mIoU: 0.5022
+2023-02-06 16:44:43,297 processing: 8000 images
+2023-02-06 16:44:43,298 mIoU: 0.5036
+2023-02-06 16:45:06,261 inference time: 0.1626535437853977 seconds
+2023-02-06 16:45:06,263 Confusion Matrix
+2023-02-06 16:45:06,263 [[1.22592034e+10 2.59441300e+06 9.69782000e+05 ... 6.30380000e+04
+  0.00000000e+00 1.54512610e+07]
+ [2.22020080e+07 3.01423045e+08 3.26543000e+05 ... 1.90000000e+01
+  0.00000000e+00 4.50015000e+05]
+ [5.06492700e+06 3.53199800e+06 6.52604810e+07 ... 0.00000000e+00
+  0.00000000e+00 2.54440000e+04]
+ ...
+ [2.34456000e+05 2.83700000e+03 3.83000000e+02 ... 1.81989000e+05
+  0.00000000e+00 4.12300000e+03]
+ [6.11300000e+03 0.00000000e+00 0.00000000e+00 ... 2.71300000e+03
+  5.20000000e+01 0.00000000e+00]
+ [4.18839410e+07 7.30893000e+05 8.79720000e+04 ... 1.12000000e+03
+  0.00000000e+00 1.95954763e+08]]
+2023-02-06 16:45:06,264 Save Confusion Matrix csv File at /home/avg/AVG-NIA/HRNet/log/csv/confusion_matrix.csv
+2023-02-06 16:45:06,265 True Positive
+2023-02-06 16:45:06,265 [1.22592034e+10 3.01423045e+08 6.52604810e+07 1.41138552e+08
+ 2.22398940e+07 4.09535170e+07 3.29800410e+07 1.01829590e+07
+ 1.48968500e+06 1.20802900e+06 1.85800000e+04 1.57158700e+06
+ 7.92932000e+05 2.31007369e+09 1.04035829e+08 1.37605458e+08
+ 9.91521730e+07 3.57783000e+07 6.53030900e+06 2.14264310e+07
+ 3.08007850e+07 3.46944750e+07 1.30001000e+06 2.75020000e+04
+ 7.86062000e+05 6.63728990e+07 9.17825300e+06 6.19094000e+05
+ 4.08810000e+04 1.81989000e+05 5.20000000e+01 1.95954763e+08]
+2023-02-06 16:45:06,265 False Positive
+2023-02-06 16:45:06,265 [2.99490286e+08 3.67393460e+07 5.00054900e+06 1.36376140e+07
+ 1.51043200e+06 1.67179800e+06 2.87466400e+06 2.65193400e+06
+ 3.23865000e+05 6.52815000e+05 4.95280000e+04 4.80003000e+05
+ 4.35873000e+05 1.48435972e+08 4.38755400e+07 2.84860000e+07
+ 1.33547340e+07 4.59506500e+06 2.33919600e+06 1.24272530e+07
+ 3.34187420e+07 4.45648030e+07 1.24077300e+06 1.92340000e+04
+ 2.12393700e+06 1.00133030e+07 2.34476500e+06 2.24829000e+05
+ 1.91970000e+04 1.41262000e+05 1.81000000e+02 4.42412420e+07]
+2023-02-06 16:45:06,266 False Negative
+2023-02-06 16:45:06,266 [5.75022050e+07 2.65465080e+07 1.00887140e+07 2.01348020e+07
+ 1.99315300e+06 1.90824000e+06 2.62174200e+06 6.90237700e+06
+ 1.01594100e+06 2.95033300e+06 2.15195000e+05 3.50119900e+06
+ 7.80319000e+05 2.30123233e+08 7.08708660e+07 8.87289590e+07
+ 5.33768690e+07 1.45236860e+07 5.31010400e+06 2.18090940e+07
+ 3.16766730e+07 3.06614380e+07 1.53842600e+06 3.18430000e+05
+ 5.23797900e+06 1.50564630e+07 5.98406500e+06 4.17680000e+05
+ 1.42274000e+05 2.83421000e+05 9.42500000e+03 4.51549220e+07]
+2023-02-06 16:45:06,266 Save tp_fp_fn csv File at /home/avg/AVG-NIA/HRNet/log/csv/tp_fp_fn.csv
+2023-02-06 16:45:06,267 MeanIOU:  0.5040, Pixel_Acc:  0.9546,             Mean_Acc:  0.5779, Class IoU: 
+2023-02-06 16:45:06,267 [0.97170363 0.82647571 0.81220521 0.80691653 0.86390398 0.91961033
+ 0.85714882 0.5159254  0.52648515 0.25108804 0.06558349 0.2830266
+ 0.39466554 0.85920011 0.47552229 0.54000955 0.59772074 0.65173446
+ 0.46054225 0.38493284 0.3211888  0.31563181 0.31869169 0.07531369
+ 0.09647326 0.7258417  0.52425941 0.49072014 0.20202914 0.29997923
+ 0.00538414 0.686715  ]
+2023-02-06 16:45:06,267 Mins: 64
+2023-02-06 16:45:06,267 Done
