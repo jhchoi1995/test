@@ -47,7 +47,7 @@ def parse_args():
 
     return args
 
-def main():
+def main(command):
     args = parse_args()
 
     logger, final_output_dir, _ = create_logger(
@@ -114,7 +114,14 @@ def main():
         shuffle=False,
         num_workers=config.WORKERS,
         pin_memory=True)
-    
+
+    # terminal command 
+    terminalCommand = ""
+    for i in range(len(command)):
+        terminalCommand += " " + str(command[i])
+
+    logging.info("command : python" + terminalCommand)
+
     start = timeit.default_timer()
     if 'val' in config.DATASET.TEST_SET:
         logging.info("####### START VALIDATION #######")
@@ -122,7 +129,7 @@ def main():
                                                            test_dataset, 
                                                            testloader, 
                                                            model)
-        ## Print & Save Confusion Matrix ##
+        # print & save confusion matrix 
         import csv
         logging.info("Confusion Matrix")
         logging.info(confusion_matrix)
@@ -173,7 +180,7 @@ def main():
             write = csv.writer(f)
             write.writerows(tp_fp_fn)
 
-        '''
+        """
         print("true_pos")
         print(true_pos)
         print("true_pos_false_pos")
@@ -186,7 +193,7 @@ def main():
         print(precision)
         print("recall")
         print(recall)
-        '''
+        """
 
         msg = 'MeanIOU: {: 4.4f}, Pixel_Acc: {: 4.4f}, \
             Mean_Acc: {: 4.4f}, Class IoU: '.format(mean_IoU, 
@@ -206,5 +213,6 @@ def main():
     logger.info('Done')
 
 
+
 if __name__ == '__main__':
-    main()
+    main(sys.argv)
