@@ -60,7 +60,7 @@ def get_sampler(dataset):
     else:
         return None
 
-def main():
+def main(command):
     torch.cuda.empty_cache() # EJ ADDED
     args = parse_args()
 
@@ -72,9 +72,6 @@ def main():
 
     logger, final_output_dir, tb_log_dir = create_logger(
         config, args.cfg, 'train')
-
-    #logger.info(pprint.pformat(args))
-    #logger.info(config)
 
     writer_dict = {
         'writer': SummaryWriter(tb_log_dir),
@@ -99,18 +96,10 @@ def main():
     model = eval('models.'+config.MODEL.NAME +
                  '.get_seg_model')(config)
 
-    # dump_input = torch.rand(
-    #     (1, 3, config.TRAIN.IMAGE_SIZE[1], config.TRAIN.IMAGE_SIZE[0])
-    # )
-    # logger.info(get_model_summary(model.cuda(), dump_input.cuda()))
-
     # copy model file
     if distributed and args.local_rank == 0:
         this_dir = os.path.dirname(__file__)
         models_dst_dir = os.path.join(final_output_dir, 'models')
-        # if os.path.exists(models_dst_dir):
-        #     shutil.rmtree(models_dst_dir)
-        # shutil.copytree(os.path.join(this_dir, '../lib/models'), models_dst_dir)
 
     if distributed:
         batch_size = config.TRAIN.BATCH_SIZE_PER_GPU
@@ -214,7 +203,7 @@ def main():
         model = nn.DataParallel(model, device_ids=gpus).cuda()
     
 
-    # optimizer
+    # sgd optimizer
     if config.TRAIN.OPTIMIZER == 'sgd':
 
         params_dict = dict(model.named_parameters())
@@ -239,10 +228,8 @@ def main():
                                 weight_decay=config.TRAIN.WD,
                                 nesterov=config.TRAIN.NESTEROV,
                                 )
-#    else:
-#        raise ValueError('Only Support SGD optimizer')
 
-########## EJ ADAM ##########
+    # adam optimizer
     if config.TRAIN.OPTIMIZER == 'adam':
 
         params_dict = dict(model.named_parameters())
@@ -266,12 +253,7 @@ def main():
                                 betas=(0.9, 0.999), 
                                 eps=1e-08, 
                                 weight_decay=0
-                                #lr=0.001,
-                                #betas=(0.9, 0.999), 
-                                #eps=1e-08, 
-                                #weight_decay=0
                                 )
-########## EJ ADAM ##########
 
     epoch_iters = np.int32(train_dataset.__len__() / 
                         config.TRAIN.BATCH_SIZE_PER_GPU / len(gpus))
@@ -297,19 +279,24 @@ def main():
         if distributed:
             torch.distributed.barrier()
 
+    ## terminal command ##
+    terminalCommand = ""
+    for i in range(len(command)):
+        terminalCommand += " " + str(command[i])
+
+    logging.info("command : python" + terminalCommand)
+
     start = timeit.default_timer()
     end_epoch = config.TRAIN.END_EPOCH + config.TRAIN.EXTRA_EPOCH
     num_iters = config.TRAIN.END_EPOCH * epoch_iters
     extra_iters = config.TRAIN.EXTRA_EPOCH * extra_epoch_iters
     
+    # train
     for epoch in range(last_epoch, end_epoch):
 
         current_trainloader = extra_trainloader if epoch >= config.TRAIN.END_EPOCH else trainloader
         if current_trainloader.sampler is not None and hasattr(current_trainloader.sampler, 'set_epoch'):
             current_trainloader.sampler.set_epoch(epoch)
-
-        # valid_loss, mean_IoU, IoU_array = validate(config, 
-        #             testloader, model, writer_dict)
 
         if epoch >= config.TRAIN.END_EPOCH:
             train(config, epoch-config.TRAIN.END_EPOCH, 
@@ -352,6 +339,5 @@ def main():
         logger.info('Hours: %d' % np.int((end-start)/3600))
         logger.info('Done')
 
-
 if __name__ == '__main__':
-    main()
+    main(sys.argv)
